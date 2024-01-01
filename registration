@@ -1,0 +1,98 @@
+1.register.java  src/main/java right click krun..folder create ..give nm...exp1…and then right click on that and select..class..give nm..register.java
+
+package exp1;
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class register extends  HttpServlet {
+
+	
+	
+	private static final long serialVersionUID = 1L;
+    
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String first_name = request.getParameter("first_name");
+		String last_name = request.getParameter("last_name");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String address = request.getParameter("address");
+		String contact = request.getParameter("contact");
+		
+		if(first_name.isEmpty() || last_name.isEmpty() || username.isEmpty() || 
+				password.isEmpty() || address.isEmpty() || contact.isEmpty())
+		{
+			RequestDispatcher req = request.getRequestDispatcher("register_1.jsp");
+			req.include(request, response);
+		}
+		else
+		{
+			RequestDispatcher req = request.getRequestDispatcher("register_2.jsp");
+			req.forward(request, response);
+		}
+	}
+}
+
+Crete 2 jsp pages index.jsp nd register_2.jsp
+2)
+Index.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Registration form</h2>
+<form action="register_2.jsp" method="post">
+			<table style="with: 50%">
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" name="first_name" /></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" name="last_name" /></td>
+				</tr>
+				<tr>
+					<td>UserName</td>
+					<td><input type="text" name="username" /></td>
+				</tr>
+					<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td><input type="text" name="address" /></td>
+				</tr>
+				<tr>
+					<td>Contact No</td>
+					<td><input type="text" name="contact" /></td>
+				</tr></table>
+			<input type="submit" value="Submit" /></form>
+
+</body>
+</html>
+
+
+3)register_2.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>done</title>
+</head>
+<body>
+		<h1>Welcome ,,,,,</h1>
+</body>
+</html>
